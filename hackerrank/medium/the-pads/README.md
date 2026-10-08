@@ -1,4 +1,4 @@
-# the-pads
+# The PADS
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -29,34 +29,29 @@ The **OCCUPATIONS** table is described as follows:
 
 ## Solution
 
-**Language:** db2  
+**Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-08T16:45:33.853Z  
+**Submitted:** 2026-10-08T17:11:58.785Z  
 
-```db2
-
+```sql
 /*
-    Enter your query here and follow these instructions:
-    1. Please append a semicolon ";" at the end of the query and enter your query in a single line to avoid error.
-    2. The AS keyword causes errors, so follow this convention: "Select t.Field From table1 t" instead of "select t.Field From table1 AS t"
-    3. Type your code immediately after comment. Don't leave any blank line.
+Enter your query here.
 */
-SELECT
-    CASE
-        WHEN A + B <= C OR A + C <= B OR B + C <= A
-            THEN 'Not A Triangle'
+SELECT CONCAT(Name, '(' , SUBSTRING(OCCUPATION, 1, 1), ')')
+FROM OCCUPATIONS
+ORDER BY Name;
 
-        WHEN A = B AND B = C AND C = A
-            THEN 'Equilateral'
-
-        WHEN A = B OR B = C OR A = C
-            THEN 'Isosceles'
-
-        ELSE 'Scalene'
-    END
-    
-FROM TRIANGLES;
+SELECT CONCAT(
+    'There are a total of ',
+    COUNT(*),
+    ' ',
+    LOWER(OCCUPATION),
+    's.'
+)
+FROM OCCUPATIONS
+GROUP BY OCCUPATION
+ORDER BY COUNT(*), OCCUPATION;
 
 ```
 
