@@ -18,12 +18,11 @@ The **CITY** table is described as follows:
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-09T11:56:26.499Z  
+**Submitted:** 2026-10-09T11:59:03.013Z  
 
 ```sql
-SELECT AVG(POPULATION)
-FROM CITY
-WHERE DISTRICT = 'California';
+SELECT ROUND(AVG(POPULATION), 0)
+FROM CITY;
 
 ```
 
