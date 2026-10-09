@@ -53,9 +53,9 @@ The starting pixel is already colored with 0, which is the same as the target co
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 43.1 MB  
-**Submitted:** 2026-10-09T09:33:27.043Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 46.3 MB (beats 98.42%)  
+**Submitted:** 2026-10-09T09:33:35.065Z  
 
 ```java
 // TC = O(m × n)
