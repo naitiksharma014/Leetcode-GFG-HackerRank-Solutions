@@ -1,4 +1,4 @@
-# population-density-difference
+# Population Density Difference
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -23,12 +23,13 @@ The **CITY** table is described as follows:
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-09T12:00:54.484Z  
+**Submitted:** 2026-10-10T17:29:01.270Z  
 
 ```sql
-SELECT SUM(POPULATION)
-FROM CITY
-WHERE COUNTRYCODE = 'JPN';
+SELECT 
+(SELECT POPULATION FROM CITY ORDER BY POPULATION DESC LIMIT 1) 
+- 
+(SELECT POPULATION FROM CITY ORDER BY POPULATION LIMIT 1);
 
 ```
 
