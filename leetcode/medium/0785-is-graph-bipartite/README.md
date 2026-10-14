@@ -50,7 +50,7 @@ Explanation: We can partition the nodes into two sets: {0, 2} and {1, 3}.
 **Language:** Java  
 **Runtime:** 0 ms  
 **Memory:** 42 MB  
-**Submitted:** 2026-10-14T16:43:34.764Z  
+**Submitted:** 2026-10-14T16:43:46.254Z  
 
 ```java
 // Time Complexity: O(V + E)   V = number of vertices and E = number of edges.
