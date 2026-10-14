@@ -48,9 +48,9 @@ Explanation: We can partition the nodes into two sets: {0, 2} and {1, 3}.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 42 MB  
-**Submitted:** 2026-10-14T16:43:46.254Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 46.7 MB (beats 98.08%)  
+**Submitted:** 2026-10-14T16:44:03.798Z  
 
 ```java
 // Time Complexity: O(V + E)   V = number of vertices and E = number of edges.
