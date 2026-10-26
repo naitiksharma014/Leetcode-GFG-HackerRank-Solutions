@@ -58,11 +58,14 @@ In both cases, there are five consecutive 'T's.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 17 ms (beats 22.78%)  
-**Memory:** 45.7 MB (beats 99.04%)  
-**Submitted:** 2026-10-26T16:53:01.315Z  
+**Runtime:** 15 ms (beats 50.54%)  
+**Memory:** 46.1 MB (beats 89.30%)  
+**Submitted:** 2026-10-26T16:54:04.095Z  
 
 ```java
+// Time Complexity: \(O(n)\) — two calls to solve(), each traverses the string once.
+// Space Complexity: \(O(1)\) — only a constant number of extra variables are used.
+
 class Solution {
     public int solve(String s, int k, char flag) {
         int n = s.length();
