@@ -1,0 +1,80 @@
+# Lexicographical Numbers
+
+![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
+
+## Problem
+
+Given an integer `n`, return all the numbers in the range `[1, n]` sorted in lexicographical order.
+
+You must write an algorithm that runs in `O(n)` time and uses `O(1)` extra space. 
+
+ 
+
+ **Example 1:** 
+
+```
+Input: n = 13
+Output: [1,10,11,12,13,2,3,4,5,6,7,8,9]
+
+```
+
+ **Example 2:** 
+
+```
+Input: n = 2
+Output: [1,2]
+
+```
+
+ 
+
+ **Constraints:** 
+
+- 1 <= n <= 5 * 104
+
+## Solution
+
+**Language:** Java  
+**Runtime:** 2 ms (beats 86.38%)  
+**Memory:** 49.4 MB (beats 90.23%)  
+**Submitted:** 2026-10-27T16:38:19.032Z  
+
+```java
+// TC: O(n)
+// SC: O(no. of digits) = O(logn)
+
+class Solution {
+    List<Integer> list = new ArrayList<>();
+
+    public void solve(int num, int n) {
+        if(num > n) {
+            return;
+        }
+
+        list.add(num);
+
+        for(int i = 0; i < 10; i++) {
+    
+            int newNum = num * 10 + i;
+            if(newNum > n) {
+                return;
+            }
+
+            solve(newNum, n);
+        }
+    }
+
+    public List<Integer> lexicalOrder(int n) {
+        
+        for(int i = 1; i < 10; i++) {
+            solve(i, n);
+        }
+
+        return list;
+    }
+}
+```
+
+---
+
+[View on LeetCode](https://leetcode.com/problems/lexicographical-numbers/)
