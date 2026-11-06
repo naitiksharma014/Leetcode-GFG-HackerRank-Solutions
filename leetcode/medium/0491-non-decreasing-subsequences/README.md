@@ -35,15 +35,17 @@ Output: [[4,4]]
 
 **Language:** Java  
 **Runtime:** 18 ms (beats 21.01%)  
-**Memory:** 51.4 MB (beats 99.92%)  
-**Submitted:** 2026-11-06T16:04:59.363Z  
+**Memory:** 51.8 MB (beats 96.47%)  
+**Submitted:** 2026-11-06T16:06:06.647Z  
 
 ```java
+// Time: (O(2^n * n) approximately.
+// Auxiliary space: O(n), excluding output.
+
 class Solution {
-    
     int n;
-    List<List<Integer>> res = new ArrayList<>();
     List<Integer> list = new ArrayList<>();
+    List<List<Integer>> res = new ArrayList<>();
 
     public void solve(int i, int prev, int[] nums) {
         if(i == n) {
