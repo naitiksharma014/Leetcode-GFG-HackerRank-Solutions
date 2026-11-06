@@ -34,45 +34,51 @@ Output: [[4,4]]
 ## Solution
 
 **Language:** Java  
-**Runtime:** 18 ms (beats 21.01%)  
-**Memory:** 51.8 MB (beats 96.47%)  
-**Submitted:** 2026-11-06T16:06:06.647Z  
+**Runtime:** 8 ms (beats 49.24%)  
+**Memory:** 52.3 MB (beats 85.46%)  
+**Submitted:** 2026-11-06T16:28:15.784Z  
 
 ```java
-// Time: (O(2^n * n) approximately.
+// Time: (O(n * 2^n) upper bound.
 // Auxiliary space: O(n), excluding output.
 
 class Solution {
     int n;
-    List<Integer> list = new ArrayList<>();
-    List<List<Integer>> res = new ArrayList<>();
+    List<Integer> currList = new ArrayList<>();
+    List<List<Integer>> resultList = new ArrayList<>();
+    
 
-    public void solve(int i, int prev, int[] nums) {
-        if(i == n) {
-            if(list.size() > 1) {
-                res.add(new ArrayList<>(list));
-            }
-            return;
+    public void solve(int i, int[] nums) {
+        if(currList.size() > 1) {
+            resultList.add(new ArrayList<>(currList));
         }
 
-        if(prev <= nums[i]) {
+        HashSet<Integer> set = new HashSet<>();
 
-            list.add(nums[i]);
+        for(int j = i; j < n; j++) {
 
-            solve(i + 1, nums[i], nums);
+            if(set.contains(nums[j])) {
+                continue;
+            }
+            
+            if(currList.isEmpty() || currList.get(currList.size() - 1) <= nums[j]) {
 
-            list.remove(list.size() - 1);
-        } 
-        
-        solve(i + 1, prev, nums);
+                set.add(nums[j]);
+                currList.add(nums[j]);
+
+                solve(j + 1, nums);
+
+                currList.remove(currList.size() - 1);
+            }
+        }
+
     }
     public List<List<Integer>> findSubsequences(int[] nums) {
         n = nums.length;
 
-        solve(0, Integer.MIN_VALUE, nums);
+        solve(0, nums);
 
-        res = new ArrayList<>(new LinkedHashSet<>(res));    // Removes Duplicate
-        return res;
+        return resultList;
     }
 }
 ```
