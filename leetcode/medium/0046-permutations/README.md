@@ -8,8 +8,6 @@ Given an array `nums` of distinct integers, return all the possible permutations
 
  
 
-Original
-Java
  **Example 1:** 
 
 ```
@@ -46,8 +44,8 @@ Output: [[1]]
 
 **Language:** Java  
 **Runtime:** 3 ms (beats 8.43%)  
-**Memory:** 44.9 MB (beats 90.20%)  
-**Submitted:** 2026-11-13T08:00:29.406Z  
+**Memory:** 45.1 MB (beats 67.15%)  
+**Submitted:** 2026-11-13T08:02:03.765Z  
 
 ```java
 // TC: O(N * N!)
@@ -59,7 +57,8 @@ class Solution {
     List<Integer> currList = new ArrayList<>();
     List<List<Integer>> resultList = new ArrayList<>();
 
-    public void solve(int idx, int[] nums){
+    public void solve(int[] nums){
+        
         if(currList.size() == n) {
             resultList.add(new ArrayList<>(currList));
             return;
@@ -74,7 +73,7 @@ class Solution {
             set.add(nums[i]);
             currList.add(nums[i]);
 
-            solve(i, nums);
+            solve(nums);
 
             set.remove(nums[i]);
             currList.remove(currList.size() - 1);
@@ -84,7 +83,7 @@ class Solution {
     public List<List<Integer>> permute(int[] nums) {
         n = nums.length;
 
-        solve(0, nums);
+        solve(nums);
         return resultList;
     }
 }
