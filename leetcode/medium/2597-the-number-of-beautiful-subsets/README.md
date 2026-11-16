@@ -1,0 +1,76 @@
+# The Number of Beautiful Subsets
+
+![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
+
+## Problem
+
+You are given an array `nums` of positive integers and a  **positive**  integer `k`.
+
+A subset of `nums` is  **beautiful**  if it does not contain two integers with an absolute difference equal to `k`.
+
+Return  *the number of  **non-empty beautiful** subsets of the array*  `nums`.
+
+A  **subset**  of `nums` is an array that can be obtained by deleting some (possibly none) elements from `nums`. Two subsets are different if and only if the chosen indices to delete are different.
+
+ 
+
+Original
+Java
+ **Example 1:** 
+
+```
+Input: nums = [2,4,6], k = 2
+Output: 4
+Explanation: The beautiful subsets of the array nums are: [2], [4], [6], [2, 6].
+It can be proved that there are only 4 beautiful subsets in the array [2,4,6].
+
+```
+
+ **Example 2:** 
+
+```
+Input: nums = [1], k = 1
+Output: 1
+Explanation: The beautiful subset of the array nums is [1].
+It can be proved that there is only 1 beautiful subset in the array [1].
+
+```
+
+ 
+
+ **Constraints:** 
+
+- 1 <= nums.length <= 18
+- 1 <= nums[i], k <= 1000
+
+## Solution
+
+**Language:** Java  
+**Runtime:** 0 ms  
+**Memory:** 41.9 MB  
+**Submitted:** 2026-11-16T07:41:40.815Z  
+
+```java
+class Solution {
+    public int beautifulSubsets(int[] nums, int k) {
+        int n = nums.length;
+        int count = 0;
+
+        for(int i = 0; i < n; i++) {
+
+            for(int j = 0; j < n; j++) {
+
+                if(Math.abs(nums[i] - nums[j]) != k) {
+                    count++;
+                }
+            }
+        }
+
+        return n + count;
+    }
+}
+```
+
+---
+
+[View on LeetCode](https://leetcode.com/problems/the-number-of-beautiful-subsets/)
