@@ -48,7 +48,7 @@ It can be proved that there is only 1 beautiful subset in the array [1].
 **Language:** Java  
 **Runtime:** 0 ms  
 **Memory:** 41.9 MB  
-**Submitted:** 2026-11-16T07:41:40.815Z  
+**Submitted:** 2026-11-16T07:42:41.054Z  
 
 ```java
 class Solution {
@@ -58,7 +58,7 @@ class Solution {
 
         for(int i = 0; i < n; i++) {
 
-            for(int j = 0; j < n; j++) {
+            for(int j = i; j < n; j++) {
 
                 if(Math.abs(nums[i] - nums[j]) != k) {
                     count++;
@@ -66,7 +66,7 @@ class Solution {
             }
         }
 
-        return n + count;
+        return count;
     }
 }
 ```
