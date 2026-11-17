@@ -1,18 +1,45 @@
+// Time Complexity: O(n * 2ⁿ)
+// Space Complexity: O(n)
+
 class Solution {
-    public int beautifulSubsets(int[] nums, int k) {
-        int n = nums.length;
-        int count = 0;
+    int n;
+    int result = 0;
 
-        for(int i = 0; i < n; i++) {
+    public void solve(int idx, int[] nums, int k, List<Integer> list) {
+        if(idx >= n) {
+            result++;
+            return;
+        }
 
-            for(int j = i; j < n; j++) {
+        // Skip
+        solve(idx + 1, nums, k, list);
 
-                if(Math.abs(nums[i] - nums[j]) != k) {
-                    count++;
-                }
+        // Take
+        boolean isPresent = true;
+
+        for(int num: list) {
+
+            if(Math.abs(num - nums[idx]) == k) {
+                isPresent = false;
+                break;
             }
         }
 
-        return count;
+        if(isPresent) {
+
+            list.add(nums[idx]);
+
+            solve(idx + 1, nums, k, list);
+
+            list.remove(list.size() - 1);
+        }
+    }
+
+    public int beautifulSubsets(int[] nums, int k) {
+        n = nums.length;
+        
+        solve(0, nums, k, new ArrayList<>());
+
+        return result - 1;  // Remove empty subset
     }
 }
