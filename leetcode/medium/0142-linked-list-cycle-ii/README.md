@@ -55,8 +55,8 @@ Explanation: There is no cycle in the linked list.
 
 **Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 46.5 MB (beats 48.08%)  
-**Submitted:** 2026-11-20T10:01:35.587Z  
+**Memory:** 45.5 MB (beats 99.27%)  
+**Submitted:** 2026-11-20T10:11:46.487Z  
 
 ```java
 /**
@@ -72,7 +72,7 @@ Explanation: There is no cycle in the linked list.
  */
 
 // TC: O(n)
-// SC: O(n)
+// SC: O(1)
 
 public class Solution {
     public ListNode detectCycle(ListNode head) {
